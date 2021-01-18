@@ -20,6 +20,19 @@ Output: -1
 Explanation:
 There is no index that satisfies the conditions in the problem statement.
 """
-def pivot_index(nums):
-    # Your code here
 
+def pivot_index(nums):
+    right_side = 0
+    left_side = 0
+    for num in nums:
+        right_side += num
+    for i, num in enumerate(nums):
+        right_side -= num
+        if left_side == right_side:
+            return i
+        else:
+            left_side += num
+    return -1
+
+print(pivot_index([1,7,3,6,5,6]))
+print(pivot_index([1,2,3]))
