@@ -22,10 +22,8 @@ There is no index that satisfies the conditions in the problem statement.
 """
 
 def pivot_index(nums):
-    right_side = 0
+    right_side = sum(nums)
     left_side = 0
-    for num in nums:
-        right_side += num
     for i, num in enumerate(nums):
         right_side -= num
         if left_side == right_side:

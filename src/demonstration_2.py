@@ -26,5 +26,20 @@ Output: [1,0,0,0]
 Explanation: The input array represents the integer 999. 999 + 1 = 1000.
 """
 def plus_one(digits):
-    # Your code here
+    result = [None] * len(digits)
+    carry = 1
+    for i, num in reversed(list(enumerate(digits))):
+        current = num + carry
+        if current < 10:
+            result[i] = current
+            carry = 0
+        else:
+            result[i] = 0
+            if i == 0:
+                result.insert(0, 1)
+    return result
+
+print(plus_one([9,9,9]))
+print(plus_one([2,3,0]))
+print(plus_one([2,9,9]))
 
